@@ -87,7 +87,7 @@ font:inherit;font-weight:700;color:var(--blau);cursor:pointer}.alle-knopf:hover{
 .fragen{display:grid;gap:10px;margin-top:14px;max-width:880px}
 .fragen details{background:var(--papier);border:1px solid var(--linie);border-radius:var(--rund);padding:0 18px}
 .fragen summary{list-style:none;cursor:pointer;padding:15px 0;font-family:var(--kopf);font-weight:650;font-size:1.05rem;
-color:var(--tinte);display:flex;justify-content:space-between;gap:12px}
+color:var(--tinte);display:flex;justify-content:space-between;align-items:center;gap:12px}
 .fragen summary::-webkit-details-marker{display:none}
 .fragen summary::after{content:"+";color:var(--blau);font-size:1.3rem;line-height:1}
 .fragen details[open] summary::after{content:"–"}
@@ -104,7 +104,7 @@ color:var(--tinte);display:flex;justify-content:space-between;gap:12px}
 .reiter button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 14px;font:inherit;font-weight:700;
 color:var(--schiefer);cursor:pointer;margin-bottom:-1px}
 .reiter button[aria-selected=true]{color:var(--tinte);border-bottom-color:var(--blau)}
-.feld{display:none}.feld.aktiv{display:block}
+.feld{display:none;scroll-margin-top:135px}.feld.aktiv{display:block}
 
 /* Tabellen */
 .tafel{background:var(--papier);border:1px solid var(--linie);border-radius:var(--rund);margin-top:16px;overflow:hidden}
@@ -122,6 +122,8 @@ td.rang{font-family:var(--kopf);font-weight:750;color:var(--schiefer);width:3ch}
 .cmdzelle{display:flex;align-items:center;gap:12px;min-width:220px}
 .cmdzelle img,.cmdzelle .ohnebild{width:58px;height:42px;border-radius:6px;object-fit:cover;flex:none;background:var(--hauch)}
 .cmdzelle a{font-weight:700;text-decoration:none;color:var(--tinte)}
+.nur-mobil{display:none;font-size:.82rem;color:var(--schiefer);margin-top:2px;font-variant-numeric:tabular-nums}
+.nur-mobil .status{font-size:.72rem;padding:1px 7px;margin-left:2px}
 .cmdzelle a:hover{color:var(--blau);text-decoration:underline}
 .quote{display:flex;align-items:center;gap:10px;justify-content:flex-end;min-width:150px}
 .quote .bahn{position:relative;width:90px;height:8px;border-radius:99px;background:var(--hauch);box-shadow:inset 0 0 0 1px var(--linie)}
@@ -150,15 +152,19 @@ font:inherit;font-weight:700;cursor:pointer;text-decoration:none;margin:10px 8px
 .banner img.art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;z-index:-2}
 .banner::after{content:"";position:absolute;inset:0;z-index:-1;
 background:linear-gradient(90deg,rgba(10,12,18,.92) 0%,rgba(10,12,18,.7) 45%,rgba(10,12,18,.25) 100%)}
-.banner .rahmen{padding-top:28px;padding-bottom:30px;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end}
-.banner a.zurueck{color:#fff;opacity:.85;text-decoration:none;font-size:.95rem;margin-bottom:auto}
+.banner .rahmen{padding-top:30px;padding-bottom:30px;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end}
+.banner-kopf{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:auto}
+.banner a.zurueck{color:#fff;opacity:.85;text-decoration:none;font-size:.95rem}
+.teilen{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:99px;
+padding:6px 14px;font:inherit;font-size:.9rem;font-weight:700;cursor:pointer;backdrop-filter:blur(4px)}
+.teilen:hover{background:rgba(255,255,255,.24)}
 .banner a.zurueck:hover{opacity:1;text-decoration:underline}
 .banner h1{font-size:clamp(1.9rem,4.6vw,3.1rem);font-weight:780;max-width:22ch;margin-top:40px;text-shadow:0 2px 18px rgba(0,0,0,.45)}
 .banner .unter{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:1.02rem}
 .banner .unter .status{background:rgba(255,255,255,.14)}
 .banner .unter .status.stark{color:#9fe0b6}.banner .unter .status.offen{color:#f3cd86}.banner .unter .status.schwach{color:#d5dae2}
 .banner .pip{width:16px;height:16px}
-.kuenstler{position:absolute;right:16px;top:10px;font-size:.72rem;opacity:.7;color:inherit;text-decoration:none}
+.kuenstler{position:absolute;right:16px;top:6px;font-size:.72rem;opacity:.7;color:inherit;text-decoration:none}
 .kuenstler:hover{opacity:1;text-decoration:underline}
 .daten{display:grid;grid-template-columns:repeat(4,1fr);background:var(--papier);border:1px solid var(--linie);
 border-radius:var(--rund);margin-top:-26px;position:relative;z-index:2;overflow:hidden}
@@ -211,7 +217,10 @@ details summary{cursor:pointer;color:var(--blau);font-weight:700}
 background:var(--hauch);color:var(--schiefer);font-variant-numeric:tabular-nums}
 .verlauf span.top3{background:color-mix(in srgb,var(--gut) 18%,transparent);color:var(--gut)}
 .verlauf span.top10{background:var(--blau-hell);color:var(--blau)}
-.namen{columns:3 220px;column-gap:24px;font-size:.92rem}
+.namen{columns:3 220px;column-gap:24px;font-size:.92rem;margin-top:12px}
+details.block>summary{font-family:var(--kopf);font-size:1.05rem;color:var(--tinte)}
+.ki-deck a.k{color:var(--tinte);font-weight:600;text-decoration:none;border-bottom:1px dotted var(--schiefer)}
+.ki-deck td .tag{margin-left:0}
 .namen div{break-inside:avoid;padding:2px 0}
 
 /* Fuß */
@@ -221,7 +230,9 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap;font-size:.92rem}
 
 @media (max-width:760px){
 .podium{grid-template-columns:1fr;gap:10px}.platz,.platz:first-child{aspect-ratio:auto;height:130px}.platz .rang,.platz:first-child .rang{font-size:2rem}.platz h3,.platz:first-child h3{font-size:1.05rem}.platz .inhalt{padding:12px 14px}
-.mobil-aus{display:none}.tausch{grid-template-columns:1fr}.quote .bahn{width:56px}.quote{min-width:0}
+.mobil-aus{display:none}.nur-mobil{display:block}.tausch{grid-template-columns:1fr}
+.cmdzelle{min-width:0;gap:10px}.cmdzelle img,.cmdzelle .ohnebild{width:46px;height:34px}
+th,td{padding:10px 8px}.reiter button{flex:1 1 auto;padding:10px 8px;font-size:.95rem}.quote .bahn{width:56px}.quote{min-width:0}
 .leiste .rahmen{gap:8px 20px}.leiste a.sprache{margin-left:auto}
 .leiste nav{margin-left:0;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px;order:3}
 .procontra{grid-template-columns:1fr}.banner .rahmen{min-height:230px}.daten{margin-top:-18px;grid-template-columns:repeat(2,1fr)}}
