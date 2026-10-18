@@ -98,7 +98,8 @@ color:var(--tinte);display:flex;justify-content:space-between;gap:12px}
 .abschnitt>.leise{max-width:70ch}
 
 /* Reiter */
-.reiter{display:flex;gap:4px;margin:18px 0 0;border-bottom:1px solid var(--linie);flex-wrap:wrap}
+.reiter{display:flex;gap:4px;margin:18px 0 0;border-bottom:1px solid var(--linie);flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+.reiter::-webkit-scrollbar{display:none}.reiter button{white-space:nowrap;flex:none}
 .reiter button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 14px;font:inherit;font-weight:700;
 color:var(--schiefer);cursor:pointer;margin-bottom:-1px}
 .reiter button[aria-selected=true]{color:var(--tinte);border-bottom-color:var(--blau)}
