@@ -199,7 +199,7 @@ box-shadow:0 14px 40px rgba(0,0,0,.4)}
 .balken .zahl{position:absolute;top:-1px;font-size:.85rem;font-weight:700;color:var(--tinte);white-space:nowrap}
 .balken .ziel-zahl{font-weight:400;color:var(--schiefer)}
 .balken.strategie{margin-top:12px;padding-top:12px;border-top:1px solid var(--linie)}
-.balken .wert.neutral{background:color-mix(in srgb,var(--blau) 45%,var(--linie))}
+.balken .info{font-size:.9rem}
 .balken .ziel{position:absolute;top:-4px;width:2px;height:24px;background:var(--tinte)}
 textarea{width:100%;min-height:170px;font:13px/1.45 ui-monospace,Consolas,monospace;background:var(--hauch);
 color:var(--tinte);border:1px solid var(--linie);border-radius:var(--rund-klein);padding:12px}
