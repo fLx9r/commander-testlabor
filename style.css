@@ -232,7 +232,8 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap;font-size:.92rem}
 .podium{grid-template-columns:1fr;gap:10px}.platz,.platz:first-child{aspect-ratio:auto;height:130px}.platz .rang,.platz:first-child .rang{font-size:2rem}.platz h3,.platz:first-child h3{font-size:1.05rem}.platz .inhalt{padding:12px 14px}
 .mobil-aus{display:none}.nur-mobil{display:block}.tausch{grid-template-columns:1fr}
 .cmdzelle{min-width:0;gap:10px}.cmdzelle img,.cmdzelle .ohnebild{width:46px;height:34px}
-th,td{padding:10px 8px}.reiter button{flex:1 1 auto;padding:10px 8px;font-size:.95rem}.quote .bahn{width:56px}.quote{min-width:0}
+th,td{padding:10px 8px}.reiter button{flex:1 1 auto;padding:10px 8px;font-size:.95rem}
+.zeichen{gap:4px 12px;padding:12px 14px;font-size:.8rem}.quote .bahn{width:56px}.quote{min-width:0}
 .leiste .rahmen{gap:8px 20px}.leiste a.sprache{margin-left:auto}
 .leiste nav{margin-left:0;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px;order:3}
 .procontra{grid-template-columns:1fr}.banner .rahmen{min-height:230px}.daten{margin-top:-18px;grid-template-columns:repeat(2,1fr)}}
