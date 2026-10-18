@@ -34,6 +34,9 @@ by Wizards. Portions of the materials used are property of Wizards of the Coast.
 <p>Daten: Scryfall (Karten, Bilder), Cardmarket (Preise, ohne Gewähr), EDHREC (Decklisten), Forge (Partien). Schriften: Bricolage Grotesque, Public Sans (SIL Open Font License).</p>
 </div></footer>
 <script>
+function frageOeffnen(){var h=location.hash.slice(1);if(!h)return;var d=document.getElementById(h);
+  if(d&&d.tagName==='DETAILS'){d.open=true;d.scrollIntoView({block:'start'});}}
+window.addEventListener('hashchange',frageOeffnen);document.addEventListener('DOMContentLoaded',frageOeffnen);
 (function(){var en=document.documentElement.lang==='en',jetzt=Date.now();
 document.querySelectorAll('time.rel').forEach(function(t){
   var d=new Date(t.getAttribute('datetime'));if(isNaN(d))return;
