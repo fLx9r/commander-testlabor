@@ -13,7 +13,8 @@ font-weight:100 900;font-style:italic;font-display:swap}
 --rund:14px;--rund-klein:8px}
 @media (prefers-color-scheme:dark){:root{
 --tisch:#11151b;--papier:#1a1f27;--tinte:#e5e9ef;--schiefer:#9aa3b2;--linie:#2c3440;--hauch:#212833;
---blau:#8db3ee;--blau-hell:#22314a;--gut:#6cc28e;--offen:#e2ae57;--schwach:#8c96a6;--warn:#ee7a66;--mb:#14121a}}
+--blau:#8db3ee;--blau-hell:#22314a;--gut:#6cc28e;--offen:#e2ae57;--schwach:#8c96a6;--warn:#ee7a66;--mb:#14121a}
+.mb{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--tisch);color:var(--tinte);font:16px/1.6 var(--text);-webkit-font-smoothing:antialiased}
@@ -63,6 +64,19 @@ text-decoration:none;aspect-ratio:4/3;isolation:isolate}
 .platz .pips{margin-left:6px}
 
 .abschnitt{padding:28px 0}
+.mehr-zeile{display:none}.zeige-alle .mehr-zeile{display:table-row}
+.alle-knopf{display:block;width:100%;background:var(--hauch);border:0;border-top:1px solid var(--linie);padding:12px;
+font:inherit;font-weight:700;color:var(--blau);cursor:pointer}.alle-knopf:hover{background:var(--blau-hell)}
+.zeige-alle .alle-knopf{display:none}
+.fragen{display:grid;gap:10px;margin-top:14px;max-width:880px}
+.fragen details{background:var(--papier);border:1px solid var(--linie);border-radius:var(--rund);padding:0 18px}
+.fragen summary{list-style:none;cursor:pointer;padding:15px 0;font-family:var(--kopf);font-weight:650;font-size:1.05rem;
+color:var(--tinte);display:flex;justify-content:space-between;gap:12px}
+.fragen summary::-webkit-details-marker{display:none}
+.fragen summary::after{content:"+";color:var(--blau);font-size:1.3rem;line-height:1}
+.fragen details[open] summary::after{content:"–"}
+.fragen details>div{padding:0 0 16px;color:var(--schiefer)}
+.fragen details>div p:first-child{margin-top:0}
 .hero-knoepfe{margin-top:14px}.klassen-satz{margin:16px 0 12px}
 .feld .podium{margin:0 0 8px}
 .abschnitt>h2{margin-bottom:6px}
@@ -128,7 +142,7 @@ background:linear-gradient(90deg,rgba(10,12,18,.92) 0%,rgba(10,12,18,.7) 45%,rgb
 .banner .unter .status.stark{color:#9fe0b6}.banner .unter .status.offen{color:#f3cd86}.banner .unter .status.schwach{color:#d5dae2}
 .banner .pip{width:16px;height:16px}
 .kuenstler{position:absolute;right:16px;top:10px;font-size:.72rem;opacity:.7}
-.daten{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));background:var(--papier);border:1px solid var(--linie);
+.daten{display:grid;grid-template-columns:repeat(4,1fr);background:var(--papier);border:1px solid var(--linie);
 border-radius:var(--rund);margin-top:-26px;position:relative;z-index:2;overflow:hidden}
 .daten>div{padding:14px 16px;border-right:1px solid var(--linie);border-bottom:1px solid var(--linie);margin:0 -1px -1px 0}
 .daten dt{font-size:.82rem;color:var(--schiefer)}
@@ -185,8 +199,8 @@ footer .rahmen{display:grid;gap:8px}
 footer nav{display:flex;gap:16px;flex-wrap:wrap;font-size:.92rem}
 
 @media (max-width:760px){
-.podium{grid-template-columns:1fr}.platz,.platz:first-child{aspect-ratio:16/9}
+.podium{grid-template-columns:1fr;gap:10px}.platz,.platz:first-child{aspect-ratio:auto;height:130px}.platz .rang,.platz:first-child .rang{font-size:2rem}.platz h3,.platz:first-child h3{font-size:1.05rem}.platz .inhalt{padding:12px 14px}
 .mobil-aus{display:none}.tausch{grid-template-columns:1fr}.quote .bahn{width:56px}.quote{min-width:0}
 .leiste nav{margin-left:0;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px}
-.banner .rahmen{min-height:230px}.daten{margin-top:-18px}}
+.banner .rahmen{min-height:230px}.daten{margin-top:-18px;grid-template-columns:repeat(2,1fr)}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.platz img{transition:none}}
