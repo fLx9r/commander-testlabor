@@ -40,6 +40,17 @@ p{margin:.5em 0}
 padding:5px 10px;border-radius:var(--rund-klein);margin-left:-8px}
 .leiste a.sprache:hover{background:var(--hauch)}
 
+/* Stärken/Schwächen und Gelerntes */
+.procontra{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:4px 0 22px}
+.procontra>div{background:var(--papier);border:1px solid var(--linie);border-radius:var(--rund);padding:14px 18px}
+.procontra h3{font-size:.95rem;margin:0 0 8px}.procontra ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.procontra li{display:flex;gap:10px;align-items:baseline;font-size:.95rem}
+.procontra li span{font-weight:800;width:14px;flex:none;text-align:center}
+.procontra li.pro span{color:var(--gut)}.procontra li.contra span{color:var(--warn)}
+.gelernt-liste{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:8px}
+.gelernt-liste [class^=tag-]{display:inline-block;font-size:.75rem;font-weight:700;padding:2px 8px;border-radius:99px;margin-right:4px}
+.tag-besser{background:var(--gut-hauch);color:var(--gut)}.tag-schlechter{background:var(--schlecht-hauch);color:var(--warn)}
+.tag-gleich{background:var(--hauch);color:var(--schiefer)}
 /* Mana-Punkte */
 .pips{display:inline-flex;gap:4px;vertical-align:middle}
 .pip{display:inline-block;width:13px;height:13px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.18)}
@@ -207,5 +218,13 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap;font-size:.92rem}
 .mobil-aus{display:none}.tausch{grid-template-columns:1fr}.quote .bahn{width:56px}.quote{min-width:0}
 .leiste .rahmen{gap:8px 20px}.leiste a.sprache{margin-left:auto}
 .leiste nav{margin-left:0;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px;order:3}
-.banner .rahmen{min-height:230px}.daten{margin-top:-18px;grid-template-columns:repeat(2,1fr)}}
+.procontra{grid-template-columns:1fr}.banner .rahmen{min-height:230px}.daten{margin-top:-18px;grid-template-columns:repeat(2,1fr)}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.platz img{transition:none}}
+
+/* echte Mana-Symbole (Scryfall-SVGs, selbst gehostet) */
+.pip.mw,.pip.mu,.pip.mb,.pip.mr,.pip.mg,.pip.mc{box-shadow:none;background-color:transparent;background-size:contain;
+background-repeat:no-repeat;background-position:center;filter:drop-shadow(0 1px 1px rgba(0,0,0,.25))}
+.pip.mw{background-image:url(img/mana/W.svg)}.pip.mu{background-image:url(img/mana/U.svg)}
+.pip.mb{background-image:url(img/mana/B.svg)}.pip.mr{background-image:url(img/mana/R.svg)}
+.pip.mg{background-image:url(img/mana/G.svg)}.pip.mc{background-image:url(img/mana/C.svg)}
+.pip{width:15px;height:15px}.marke .pip{width:12px;height:12px}.banner .pip{width:20px;height:20px}
