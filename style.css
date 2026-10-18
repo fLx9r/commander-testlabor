@@ -47,6 +47,7 @@ padding:5px 10px;border-radius:var(--rund-klein);margin-left:-8px}
 .procontra li{display:flex;gap:10px;align-items:baseline;font-size:.95rem}
 .procontra li span{font-weight:800;width:14px;flex:none;text-align:center}
 .procontra li.pro span{color:var(--gut)}.procontra li.contra span{color:var(--warn)}
+.kombos{display:grid;gap:10px}
 .gelernt-liste{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:8px}
 .gelernt-liste [class^=tag-]{display:inline-block;font-size:.75rem;font-weight:700;padding:2px 8px;border-radius:99px;margin-right:4px}
 .tag-besser{background:var(--gut-hauch);color:var(--gut)}.tag-schlechter{background:var(--schlecht-hauch);color:var(--warn)}
