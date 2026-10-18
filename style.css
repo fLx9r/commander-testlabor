@@ -34,7 +34,7 @@ p{margin:.5em 0}
 .marke{display:flex;align-items:center;gap:10px;font-family:var(--kopf);font-weight:750;font-size:1.1rem;color:var(--tinte);text-decoration:none}
 .marke .pips{gap:3px}.marke .pip{width:9px;height:9px}
 .leiste nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
-.leiste nav a{color:var(--schiefer);text-decoration:none;padding:6px 10px;border-radius:var(--rund-klein);font-size:.95rem}
+.leiste nav a{color:var(--schiefer);text-decoration:none;padding:6px 10px;border-radius:var(--rund-klein);font-size:.95rem;white-space:nowrap}
 .leiste nav a:hover{background:var(--hauch);color:var(--tinte)}
 .leiste a.sprache{border:1px solid var(--linie);font-weight:700;font-size:.85rem;color:var(--tinte);text-decoration:none;
 padding:5px 10px;border-radius:var(--rund-klein);margin-left:-8px}
