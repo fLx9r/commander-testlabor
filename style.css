@@ -10,10 +10,12 @@ font-weight:100 900;font-style:italic;font-display:swap}
 --blau:#2a5ca6;--blau-hell:#e3ebf7;--gut:#2e7d4f;--offen:#a86a12;--schwach:#7a8494;--warn:#c2412d;
 --mw:#f4edcf;--mw-rand:#c9bd8c;--mu:#3e7cc0;--mb:#3b3640;--mr:#cf4b2c;--mg:#3c8c55;--mc:#b9b4aa;
 --kopf:"Bricolage",system-ui,sans-serif;--text:"Public Sans",system-ui,"Segoe UI",sans-serif;
+--gut-hauch:#e1f1e7;--schlecht-hauch:#fbe5e1;
 --rund:14px;--rund-klein:8px}
 @media (prefers-color-scheme:dark){:root{
 --tisch:#11151b;--papier:#1a1f27;--tinte:#e5e9ef;--schiefer:#9aa3b2;--linie:#2c3440;--hauch:#212833;
---blau:#8db3ee;--blau-hell:#22314a;--gut:#6cc28e;--offen:#e2ae57;--schwach:#8c96a6;--warn:#ee7a66;--mb:#14121a}
+--blau:#8db3ee;--blau-hell:#22314a;--gut:#6cc28e;--offen:#e2ae57;--schwach:#8c96a6;--warn:#ee7a66;--mb:#14121a;
+--gut-hauch:#1b3326;--schlecht-hauch:#3b2320}
 .mb{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -64,6 +66,18 @@ padding:5px 10px;border-radius:var(--rund-klein);margin-left:-8px}
 .hero h1{font-size:clamp(2rem,5.2vw,3.4rem);font-weight:780;max-width:16ch}
 .hero .lead{font-size:1.15rem;max-width:62ch;margin-top:14px}
 .hero .stand{margin-top:10px}
+.hero.mit-zahlen{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:48px;align-items:center}
+.kennzahlen{display:grid;grid-template-columns:1fr 1fr;background:var(--papier);border:1px solid var(--linie);
+border-radius:var(--rund);overflow:hidden}
+.kennzahl{padding:16px 18px;border-right:1px solid var(--linie);border-bottom:1px solid var(--linie);margin:0 -1px -1px 0;
+display:flex;flex-direction:column;min-width:0;color:inherit;text-decoration:none}
+.kennzahl span{font-size:.82rem;color:var(--schiefer)}
+.kennzahl b{font-family:var(--kopf);font-weight:760;font-size:1.9rem;line-height:1.15;letter-spacing:-.01em}
+.kennzahl small{font-size:.8rem;color:var(--schiefer)}
+.kennzahl.spitze b{font-size:1.2rem;line-height:1.25;margin:6px 0 3px;overflow-wrap:anywhere}
+a.kennzahl.spitze:hover{background:var(--hauch)}
+@media (max-width:899px){.hero.mit-zahlen{grid-template-columns:1fr;gap:22px}
+.kennzahl{padding:12px 14px}.kennzahl b{font-size:1.45rem}.kennzahl.spitze b{font-size:1.05rem}}
 .podium{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:16px;margin:8px 0 40px;align-items:end}
 .platz{position:relative;display:block;border-radius:var(--rund);overflow:hidden;background:var(--mb);color:#fff;
 text-decoration:none;aspect-ratio:4/3;isolation:isolate}
@@ -117,6 +131,7 @@ th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--linie);ver
 tbody tr:last-child td{border-bottom:0}
 th{font-size:.84rem;color:var(--schiefer);font-weight:700;background:var(--hauch)}
 td.zahl,th.zahl{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.nw{white-space:nowrap}
 tbody tr:hover{background:var(--hauch)}
 td.rang{font-family:var(--kopf);font-weight:750;color:var(--schiefer);width:3ch}
 .cmdzelle{display:flex;align-items:center;gap:12px;min-width:220px}
@@ -139,6 +154,8 @@ td.rang{font-family:var(--kopf);font-weight:750;color:var(--schiefer);width:3ch}
 /* Inhaltsblöcke */
 .spalten{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px;margin-top:14px}
 .block{background:var(--papier);border:1px solid var(--linie);border-radius:var(--rund);padding:20px}
+.spalten>.block{display:flex;flex-direction:column}.spalten>.block>.knopf{margin-top:auto;align-self:flex-start}
+.wz td:nth-child(2){white-space:nowrap}
 .block h3{margin-bottom:8px}
 .block ul{padding-left:20px;margin:8px 0}
 .block li{margin:4px 0}
@@ -161,6 +178,9 @@ padding:6px 14px;font:inherit;font-size:.9rem;font-weight:700;cursor:pointer;bac
 .banner a.zurueck:hover{opacity:1;text-decoration:underline}
 .banner h1{font-size:clamp(1.9rem,4.6vw,3.1rem);font-weight:780;max-width:22ch;margin-top:40px;text-shadow:0 2px 18px rgba(0,0,0,.45)}
 .banner .unter{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:1.02rem}
+.banner .andere{margin:10px 0 0;display:flex;gap:8px;flex-wrap:wrap}
+.banner .andere a{color:#fff;text-decoration:none;font-size:.88rem;font-weight:600;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3)}
+.banner .andere a:hover{background:rgba(255,255,255,.26)}
 .banner .unter .status{background:rgba(255,255,255,.14)}
 .banner .unter .status.stark{color:#9fe0b6}.banner .unter .status.offen{color:#f3cd86}.banner .unter .status.schwach{color:#d5dae2}
 .banner .pip{width:16px;height:16px}
@@ -169,6 +189,8 @@ padding:6px 14px;font:inherit;font-size:.9rem;font-weight:700;cursor:pointer;bac
 .daten{display:grid;grid-template-columns:repeat(4,1fr);background:var(--papier);border:1px solid var(--linie);
 border-radius:var(--rund);margin-top:-26px;position:relative;z-index:2;overflow:hidden}
 .daten>div{padding:14px 16px;border-right:1px solid var(--linie);border-bottom:1px solid var(--linie);margin:0 -1px -1px 0}
+.daten>div:last-child:nth-child(4n+3){grid-column:span 2}.daten>div:last-child:nth-child(4n+2){grid-column:span 3}
+.daten>div:last-child:nth-child(4n+1){grid-column:span 4}
 .daten dt{font-size:.82rem;color:var(--schiefer)}
 .daten dd{margin:2px 0 0;font-family:var(--kopf);font-weight:720;font-size:1.35rem;line-height:1.2}
 .daten dd small{display:block;font-family:var(--text);font-weight:400;font-size:.8rem;color:var(--schiefer);margin-top:2px}
@@ -181,7 +203,8 @@ border-radius:var(--rund);margin-top:-26px;position:relative;z-index:2;overflow:
 .gruppe li{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid var(--linie);font-size:.94rem}
 .gruppe li .p{color:var(--schiefer);white-space:nowrap;font-variant-numeric:tabular-nums}
 .gruppe li .auf{color:var(--schiefer);font-size:.82rem}
-.gruppe a.k{color:var(--tinte);text-decoration:none;border-bottom:1px dotted var(--schiefer)}
+.gruppe a.k{color:var(--tinte);text-decoration:none;border-bottom:1px dotted color-mix(in srgb,var(--schiefer) 55%,transparent)}
+.summe{margin:4px 0 12px}.summe b{font-family:var(--kopf);font-size:1.3rem;margin:0 8px 0 4px}
 .gruppe a.k:hover{color:var(--blau);border-bottom-color:var(--blau)}
 .tag{font-size:.72rem;font-weight:700;padding:1px 7px;border-radius:99px;margin-left:5px;white-space:nowrap}
 .tag.gc{color:var(--blau);background:var(--blau-hell)}
@@ -236,7 +259,7 @@ th,td{padding:10px 8px}.reiter button{flex:1 1 auto;padding:10px 8px;font-size:.
 .zeichen{gap:4px 12px;padding:12px 14px;font-size:.8rem}.quote .bahn{width:56px}.quote{min-width:0}
 .leiste .rahmen{gap:8px 20px}.leiste a.sprache{margin-left:auto}
 .leiste nav{margin-left:0;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px;order:3}
-.procontra{grid-template-columns:1fr}.banner .rahmen{min-height:230px}.daten{margin-top:-18px;grid-template-columns:repeat(2,1fr)}}
+.procontra{grid-template-columns:1fr}.banner .rahmen{min-height:230px}.daten{margin-top:-18px;grid-template-columns:repeat(2,1fr)}.daten>div:last-child{grid-column:auto!important}.daten>div:last-child:nth-child(odd){grid-column:span 2!important}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.platz img{transition:none}}
 
 /* echte Mana-Symbole (Scryfall-SVGs, selbst gehostet) */
