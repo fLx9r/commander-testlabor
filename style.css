@@ -47,8 +47,8 @@ padding:5px 10px;border-radius:var(--rund-klein);margin-left:-8px}
 .procontra>div{background:var(--papier);border:1px solid var(--linie);border-radius:var(--rund);padding:14px 18px}
 .procontra h3{font-size:.95rem;margin:0 0 8px}.procontra ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 .procontra li{display:flex;gap:10px;align-items:baseline;font-size:.95rem}
-.procontra li span{font-weight:800;width:14px;flex:none;text-align:center}
-.procontra li.pro span{color:var(--gut)}.procontra li.contra span{color:var(--warn)}
+.procontra li>span:first-child{font-weight:800;width:14px;flex:none;text-align:center}
+.procontra li.pro>span:first-child{color:var(--gut)}.procontra li.contra>span:first-child{color:var(--warn)}
 .kombos{display:grid;gap:10px}
 .schritte{padding-left:20px;display:grid;gap:8px;margin:8px 0}
 .gelernt-liste{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:8px}
@@ -118,6 +118,25 @@ color:var(--tinte);display:flex;justify-content:space-between;align-items:center
 .reiter button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 14px;font:inherit;font-weight:700;
 color:var(--schiefer);cursor:pointer;margin-bottom:-1px}
 .reiter button[aria-selected=true]{color:var(--tinte);border-bottom-color:var(--blau)}
+.kennzahlen[hidden]{display:none}
+.schaetz{margin-top:2px;white-space:nowrap}
+.ueber-kopf{display:grid;grid-template-columns:1fr;gap:16px;margin-top:16px}
+.ueber-kopf .raster{margin-top:0;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr))}
+.kartenbild{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.kartenbild img{width:min(260px,70vw);aspect-ratio:488/680;border-radius:4.75%/3.5%;box-shadow:0 8px 28px rgba(0,0,0,.28);background:var(--hauch)}
+.kartenbild img+img{margin-top:8px}
+@media(min-width:1000px){.ueber-kopf{grid-template-columns:1fr 270px}.kartenbild{order:2;position:sticky;top:130px;align-self:start}}
+.analyse{margin-top:16px}
+.analyse .procontra{margin:12px 0 0}.analyse .procontra>div{background:var(--hauch);border:0}
+.beleg{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.02em;padding:1px 7px;border-radius:99px;vertical-align:middle;white-space:nowrap}
+.beleg.b{background:#e3f1e8;color:#1f6b3a}.beleg.i{background:#fbf0d9;color:#8a5a00}
+@media(prefers-color-scheme:dark){.beleg.b{background:#173826;color:#9fe0b6}.beleg.i{background:#3a2c10;color:#f3cd86}}
+.analyse-raster{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px 24px;margin-top:14px}
+.analyse-raster h4{margin:0 0 6px;font-size:.95rem}
+.analyse-raster ol{margin:0;padding-left:20px}.analyse-raster li{margin:4px 0;line-height:1.35}
+
+.sortieren{display:inline-flex;align-items:center;gap:6px;font-weight:600}
+.sortieren select{font:inherit;padding:4px 8px;border-radius:8px;border:1px solid var(--linie);background:var(--papier);color:var(--tinte)}
 .feld{display:none;scroll-margin-top:135px}.feld.aktiv{display:block}
 
 /* Tabellen */

@@ -55,6 +55,9 @@ document.querySelectorAll('[role=tablist]').forEach(function(liste){
   function zeige(k,merken){knoepfe.forEach(function(x){var an=x===k;x.setAttribute('aria-selected',an);
       x.tabIndex=an?0:-1;document.getElementById(x.getAttribute('aria-controls')).classList.toggle('aktiv',an)});
     if(k.offsetLeft<liste.scrollLeft||k.offsetLeft+k.offsetWidth>liste.scrollLeft+liste.clientWidth)liste.scrollLeft=k.offsetLeft-16;
+    var ziel=k.getAttribute('aria-controls'),bl=[].slice.call(document.querySelectorAll('[data-fuer]'));
+    ziel=(document.getElementById(ziel)||{dataset:{}}).dataset.zeige||ziel;
+    if(bl.some(function(x){return x.dataset.fuer===ziel}))bl.forEach(function(x){x.hidden=x.dataset.fuer!==ziel});
     if(merken&&history.replaceState)history.replaceState(null,'','#'+k.getAttribute('aria-controls'));}
   knoepfe.forEach(function(k,i){k.tabIndex=k.getAttribute('aria-selected')==='true'?0:-1;
     k.addEventListener('click',function(){zeige(k,true)});
@@ -64,6 +67,14 @@ document.querySelectorAll('[role=tablist]').forEach(function(liste){
     if(t)zeige(t,false);return t}
   ausHash();window.addEventListener('hashchange',function(){var t=ausHash();if(t)t.scrollIntoView({block:'start'})});
 });
+document.querySelectorAll('select[data-sortieren]').forEach(function(sel){sel.addEventListener('change',function(){
+  var w=sel.value,feld=w[0]==='p'?'p':'n',dir=w[1]==='+'?1:-1,tafel=sel.closest('.tafel');
+  tafel.querySelectorAll('.gruppe ul').forEach(function(ul){var li=[].slice.call(ul.children);
+    li.sort(function(a,b){var x=a.dataset[feld],y=b.dataset[feld];
+      if(feld==='p'){if(x===''&&y==='')return a.dataset.n<b.dataset.n?-1:1;if(x==='')return 1;if(y==='')return -1;
+        return (parseFloat(x)-parseFloat(y))*dir||(a.dataset.n<b.dataset.n?-1:1)}
+      return x<y?-dir:x>y?dir:0});
+    li.forEach(function(x){ul.appendChild(x)})})})});
 document.querySelectorAll('button.teilen').forEach(function(b){b.addEventListener('click',function(){
   var url=location.href.split('#')[0],alt=b.textContent;
   if(navigator.share){navigator.share({title:b.dataset.titel,url:url}).catch(function(){});return}
