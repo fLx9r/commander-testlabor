@@ -125,7 +125,10 @@ color:var(--schiefer);cursor:pointer;margin-bottom:-1px}
 .kartenbild{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px}
 .kartenbild img{width:min(260px,70vw);aspect-ratio:488/680;border-radius:4.75%/3.5%;box-shadow:0 8px 28px rgba(0,0,0,.28);background:var(--hauch)}
 .kartenbild img+img{margin-top:8px}
-@media(min-width:1000px){.ueber-kopf{grid-template-columns:1fr 270px}.kartenbild{order:2;position:sticky;top:130px;align-self:start}}
+.liste-kopf{display:grid;grid-template-columns:1fr}
+.liste-kopf .kartenbild{order:-1;padding:16px 0 0}
+.liste-kopf .kartenbild img{width:min(220px,60vw)}
+@media(min-width:1000px){.liste-kopf:has(.kartenbild){grid-template-columns:1fr 290px}.liste-kopf .kartenbild{order:2;padding:18px 18px 18px 0;position:sticky;top:130px;align-self:start}.liste-kopf .kartenbild img{width:260px}}
 .analyse{margin-top:16px}
 .analyse .procontra{margin:12px 0 0}.analyse .procontra>div{background:var(--hauch);border:0}
 .beleg{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.02em;padding:1px 7px;border-radius:99px;vertical-align:middle;white-space:nowrap}
@@ -225,6 +228,8 @@ border-radius:var(--rund);margin-top:-26px;position:relative;z-index:2;overflow:
 .gruppe a.k{color:var(--tinte);text-decoration:none;border-bottom:1px dotted color-mix(in srgb,var(--schiefer) 55%,transparent)}
 .summe{margin:4px 0 12px}.summe b{font-family:var(--kopf);font-size:1.3rem;margin:0 8px 0 4px}
 .gruppe a.k:hover{color:var(--blau);border-bottom-color:var(--blau)}
+.analyse a.k{color:var(--tinte);text-decoration:none;border-bottom:1px dotted color-mix(in srgb,var(--schiefer) 55%,transparent)}
+.analyse a.k:hover{color:var(--blau);border-bottom-color:var(--blau)}
 .tag{font-size:.72rem;font-weight:700;padding:1px 7px;border-radius:99px;margin-left:5px;white-space:nowrap}
 .tag.gc{color:var(--blau);background:var(--blau-hell)}
 .tag.kombo{color:var(--gut);background:color-mix(in srgb,var(--gut) 13%,transparent)}
